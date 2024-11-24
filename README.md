@@ -3,15 +3,12 @@
 
 - [X] Basic Concept
 - [X] Physics
-<<<<<<< HEAD
 - [X] Collision Particle Effect
 - [ ] Better graphics
 - [ ] More Levels
 - [ ] Better UI
 - [ ] Polishing
-=======
 - [ ] Better graphics
 - [ ] More Levels
 - [ ] Better UI
 - [ ] Polishing
->>>>>>> 6dc2db0344dd7ee937ab9db5c8074cf6e5b1cdd9
