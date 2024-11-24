@@ -9,7 +9,6 @@ export class World{
   testLevel: TestLevel | undefined
   player: Player | undefined
 
-  
 
     constructor(){
       this.canvas = document.createElement("canvas")
@@ -24,6 +23,8 @@ export class World{
       this.canvas.height = innerHeight
 
       this.drawWall()
+
+      
     }
     drawWall(){
       this.testLevel = new TestLevel(this.c , this.canvas.width/2,this.canvas.height/2)

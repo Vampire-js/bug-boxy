@@ -1,3 +1,4 @@
+import { CollisionEffect } from "../effects/CollisionEffect"
 import { Vector } from "./math/vector"
 import { Wall } from "./primitives/Wall"
 
@@ -13,10 +14,12 @@ export class Player {
     mass: number
     keys: { w: boolean; a: boolean; s: boolean; d: boolean }
    
+    timer:number
     c: CanvasRenderingContext2D | null
     walls:Array<Wall>
 
     gravity:number
+    explosions: Array<CollisionEffect>
 
     constructor(x:number, y:number, r:number, c:CanvasRenderingContext2D | null) {
 
@@ -31,6 +34,8 @@ export class Player {
         this.player = false
         this.randomMotion = true
         this.hightlight = false
+        this.timer = 0
+
         this.mass = 1
         this.keys = {
             w:false,
@@ -40,6 +45,8 @@ export class Player {
         }
 
         this.walls = []
+
+        this.explosions = []
        
     }
     draw() {
@@ -91,7 +98,7 @@ export class Player {
         if (projectionLength >= 0 && projectionLength <= wallLength) {
             // Find the closest point on the wall to the ball
             let closestPoint = wall.start.add(wallVector.unit().mult(projectionLength));
-    
+            
             // Calculate the vector from the ball to this closest point
             let ballToClosestPoint = this.position.sub(closestPoint);
             let distanceToWall = ballToClosestPoint.mag();
@@ -100,6 +107,10 @@ export class Player {
             if (distanceToWall <= this.r) {
                 // Resolve the collision by moving the ball out and inverting velocity along the normal
                 let collisionNormal = ballToClosestPoint.unit();
+                
+                let effect = new CollisionEffect(closestPoint.x-20, closestPoint.y-20, this.c)
+                this.explosions.push(effect)
+
                 this.position = closestPoint.add(collisionNormal.mult(this.r));
                 // console.log(collisionNormal)
                 this.velocity = this.velocity.sub(collisionNormal.mult(2 * this.velocity.dot(collisionNormal))).add(collisionNormal.mult(closestPoint.sub(wall.start).mag()*wall.omega)).mult(.4 + Math.random()*.6) // Damping factor
@@ -149,7 +160,7 @@ export class Player {
     update() {
         this.draw();
         this.velocity = this.velocity.unit().mult(2)
-    
+        this.timer++
         // Check and resolve collisions with all walls before updating position
         for (let wall of this.walls) {
             this.collideWall(wall);
@@ -166,6 +177,16 @@ export class Player {
         // Gravity on the y-axis
         this.acc.y = this.gravity;
     
+
+        this.explosions.map(e => {
+            e.draw()
+            e.update()
+        })
+
+        if(this.timer%40 == 0){
+            this.explosions.shift()
+        }
+
         
     }
     
