@@ -3,6 +3,7 @@
 
 - [X] Basic Concept
 - [X] Physics
+- [ ] Better graphics
 - [ ] More Levels
 - [ ] Better UI
 - [ ] Polishing
