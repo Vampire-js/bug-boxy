@@ -8,7 +8,3 @@
 - [ ] More Levels
 - [ ] Better UI
 - [ ] Polishing
-- [ ] Better graphics
-- [ ] More Levels
-- [ ] Better UI
-- [ ] Polishing
