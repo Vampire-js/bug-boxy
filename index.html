@@ -11,10 +11,18 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div class="overlay absolute top-0 left-0 flex justify-center items-center h-screen w-screen font-black text-9xl text-custom p-5 text-start" >W</div>
-    <div class="over absolute top-0 left-0  bg-[rgba(0,0,0,0.6)] w-screen h-full flex justify-content items-center hidden">
-      <div class="title text-8xl font-black text-white text-center w-full" >LEVEL <br>PASSED</div>
+   
+    <div class="overlay absolute top-0 left-0 flex justify-center items-center h-screen w-screen font-black text-9xl text-custom p-5 text-start" >Press W</div>
+    <div class="over absolute top-0 left-0  bg-[rgba(0,0,0,0.6)] w-screen h-full flex justify-content items-center hidden " id="over">
+      <div class="title text-8xl font-black text-white text-center w-full" >Press W for next level
     </div>
+    
+    </div>
+<div id="gameover" class="gameover absolute top-0 left-0 bg-[rgba(0,0,0,.7)] w-screen h-screen flex flex-col justify-center items-center text-9xl font-black text-gray-100 hidden"><div>Game over</div>
+
+  <div class="text-3xl text-gray-100">Thanks for playing :)</div>
+</div>
+
     <div class="canvas"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

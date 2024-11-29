@@ -3,12 +3,14 @@ import { Wall } from "../primitives/Wall";
 
 const ROTATION_SPEED = Math.PI/300
 
-export class TestLevel{
+export class TestLevel3{
 
     wall1: Wall
     wall2: Wall
     wall3: Wall
     wall4:Wall
+    wall5:Wall
+    wall6:Wall
     pivot: Vector
     omega: number
     origin:Vector
@@ -26,29 +28,27 @@ export class TestLevel{
 
         this.src = "src/assets/img.png"
         
-        this.wall1 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2,this.origin.y - this.height/2, 0,c)
+        this.wall1 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 20,this.origin.y - this.height/2, 0,c)
         this.wall2 = new Wall(this.origin.x - this.width/2,this.origin.y + this.height/2,this.origin.x + this.width/2,this.origin.y + this.height/2, 0,c)
-        this.wall3 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 50,this.origin.y - this.height/2, -Math.PI/2,c)
+        this.wall3 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 40,this.origin.y - this.height/2 -20, -Math.PI/2,c)
         this.wall4 = new Wall(this.origin.x + this.width/2,this.origin.y + this.height/2,this.origin.x - this.width/2,this.origin.y + this.height/2, -Math.PI/2,c)
+        this.wall5 = new Wall(this.origin.x -50 , this.origin.y + 50 , this.origin.x + 140 , this.origin.y-10 ,0,c)
 
-        this.walls = [this.wall1 , this.wall2 ,  this.wall3 , this.wall4]
+        this.wall6 = new Wall(this.origin.x -150 , this.origin.y + 50 , this.origin.x + 140 , this.origin.y-100 ,0,c)
+
+        this.walls = [this.wall1 , this.wall2 ,  this.wall3 , this.wall4, this.wall5, this.wall6]
       
         this.pivot = this.origin
         this.omega = 0
     }
     draw(){
-        this.wall1.draw()
-        this.wall2.draw()
-        this.wall3.draw()
-        this.wall4.draw()
+        this.walls.map(e => {
+            e.pivot = this.pivot
+            e.draw()})
 
 this.enableControls()
 
 
-        this.wall1.pivot = this.pivot
-        this.wall2.pivot = this.pivot
-        this.wall3.pivot = this.pivot
-        this.wall4.pivot = this.pivot
         
     }
 
@@ -76,14 +76,10 @@ this.enableControls()
 
         // this.maskImage(this.src)
 
-        this.wall1.omega = this.omega
-        this.wall2.omega = this.omega
-        this.wall3.omega = this.omega
-        this.wall4.omega = this.omega
+        this.walls.map(e => {
+            e.omega = this.omega
+            e.update()
+        })
 
-     this.wall1.update()
-     this.wall2.update()   
-     this.wall3.update()
-     this.wall4.update()
     }
 }

@@ -1,5 +1,6 @@
 import { CollisionEffect } from "../effects/CollisionEffect"
 import { Vector } from "./math/vector"
+import { AnimatedSprite } from "./primitives/AnimatedSprite"
 import { Wall } from "./primitives/Wall"
 
 export class Player {
@@ -20,6 +21,9 @@ export class Player {
 
     gravity:number
     explosions: Array<CollisionEffect>
+    anim:AnimatedSprite | undefined
+
+
 
     constructor(x:number, y:number, r:number, c:CanvasRenderingContext2D | null) {
 
@@ -54,11 +58,13 @@ export class Player {
         this.c.beginPath()
         this.c.arc(this.position.x, this.position.y, this.r, 0, 2 * Math.PI)
         this.c.strokeStyle = "black"
-        this.c.lineWidth =10
+        this.c.lineWidth =5
         this.c.stroke()
         this.c.fillStyle = this.color
         this.c.fill()
         }
+
+  
 
         // this.velocity.draw(this.position.x, this.position.y, 40, "red")
     }
@@ -177,15 +183,17 @@ export class Player {
         // Gravity on the y-axis
         this.acc.y = this.gravity;
     
+    
 
-        this.explosions.map(e => {
-            e.draw()
-            e.update()
-        })
 
-        if(this.timer%40 == 0){
-            this.explosions.shift()
-        }
+        // this.explosions.map(e => {
+        //     e.draw()
+        //     e.update()
+        // })
+
+        // if(this.timer%40 == 0){
+        //     this.explosions.shift()
+        // }
 
         
     }
