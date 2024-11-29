@@ -5,6 +5,6 @@
 - [X] Physics
 - [X] Collision Particle Effect
 - [ ] Better graphics
-- [ ] More Levels
-- [ ] Better UI
+- [X] More Levels
+- [X] Better UI
 - [ ] Polishing
