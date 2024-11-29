@@ -1,6 +1,5 @@
 import { CollisionEffect } from "../effects/CollisionEffect"
 import { Vector } from "./math/vector"
-import { AnimatedSprite } from "./primitives/AnimatedSprite"
 import { Wall } from "./primitives/Wall"
 
 export class Player {
@@ -21,7 +20,6 @@ export class Player {
 
     gravity:number
     explosions: Array<CollisionEffect>
-    anim:AnimatedSprite | undefined
 
 
 

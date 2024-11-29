@@ -1,6 +1,5 @@
 import { Matrix } from "../math/matrix"
 import { Vector } from "../math/vector"
-import { World } from "../World"
 
 
 export class Wall{

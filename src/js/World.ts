@@ -2,7 +2,7 @@ import { TestLevel } from "./levels/TestLevel"
 import { TestLevel2 } from "./levels/TestLevel2"
 import { TestLevel3 } from "./levels/TestLevel3"
 import { Player } from "./player"
-import { AnimatedSprite } from "./primitives/AnimatedSprite"
+
 import { Wall } from "./primitives/Wall"
 
 const gameover = document.getElementById("gameover")
@@ -13,8 +13,7 @@ export class World{
   wall: Wall | undefined
   testLevel: TestLevel | undefined
   player: Player | undefined
-
-  anim: AnimatedSprite | undefined
+  
   level:number
   levels:Array<any>
   isLevelOver:boolean
