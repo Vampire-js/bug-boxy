@@ -8,14 +8,14 @@
   /* image-rendering: crisp-edges; */
 
   text-shadow: 0 0 3px #25252500, 0 0 5px #0000ff00;
-  font-family: Roboto;
+  font-family: Nunito;
 }
 
 .text-custom{
-  color:rgba(255, 255, 255, 0.091);
+  color:rgba(73, 72, 72, 0.071);
   filter: blur(1000);
 }
 .filter{
   filter: brightness(120px) contrast(300%) hue-rotate(30deg);
-  background:rgba(0, 0, 0, 0.048);
+  background:rgba(0, 0, 0, 0.016);
 }

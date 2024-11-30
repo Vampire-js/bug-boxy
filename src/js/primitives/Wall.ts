@@ -48,9 +48,9 @@ export class Wall{
         this.c.lineTo(this.end.x, this.end.y)
         this.c.lineCap = "round";
         this.c.lineWidth = 10
-          this.c.shadowBlur = 20
-        this.c.shadowColor = "white"
-        this.c.strokeStyle = "#eee"
+        //   this.c.shadowBlur = 20
+        // this.c.shadowColor = "#49beb7"
+        this.c.strokeStyle = "#085f63"
         this.c.stroke()
         }
       
