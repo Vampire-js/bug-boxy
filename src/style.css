@@ -19,3 +19,9 @@
   filter: brightness(120px) contrast(300%) hue-rotate(30deg);
   background:rgba(0, 0, 0, 0.016);
 }
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

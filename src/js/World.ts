@@ -25,10 +25,10 @@ export class World{
 
     constructor(){
       this.canvas = document.createElement("canvas")
-      this.canvas.width = innerWidth
-      this.canvas.height = innerHeight
+      this.canvas.width = 1080
+      this.canvas.height = 616
       this.c = this.canvas.getContext("2d")
-      this.level = 5;
+      this.level = 0;
       this.isLevelOver = false
       this.levels = [new TestLevel(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel2(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel3(this.c , this.canvas.width/2,this.canvas.height/2), new TestLevel4(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel5(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel6(this.c , this.canvas.width/2,this.canvas.height/2)]
       this.init()

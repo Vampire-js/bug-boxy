@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -10,30 +10,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     
-    <title>BugBoxy</title>
+    <title>Exiria</title>
   </head>
-  <body>
-   
-    <div class="overlay absolute top-0 left-0 flex justify-center items-center h-screen w-screen font-black text-9xl text-custom p-5  text-center flex flex-col justify-center items-center" >
-     <span> Press W </span>
-      <span class="text-4xl">Remove the ball from the box</span>
-    </div>
+  <body style="background: rgb(250,207,90); height: 100vh;">
+  
+
     <div class="over absolute top-0 left-0  bg-[rgba(0,0,0,0.6)] w-screen h-full flex justify-content items-center hidden " id="over">
       <div class="title text-8xl font-black text-white text-center w-full" >Press W for next level
     </div>
     
     </div>
-    <div id="timer" class="absolute font-black text-white text-5xl p-6 text-center w-full">
+    
+    <div id="timer" class="absolute top-0 left-0 w-full font-black text-white text-5xl p-6 text-center w-full">
       0.0 s
       </div>
+      
 <div id="gameover" class="gameover absolute top-0 left-0 bg-[rgba(0,0,0,.7)] w-screen h-screen flex flex-col justify-center items-center text-9xl font-black text-gray-100 hidden"><div>Game over</div>
 
   <div class="text-3xl text-gray-100" id="endtime">Time taken:</div>
 </div>
+<div class="overlay absolute top-0 left-0 flex justify-center items-center h-screen w-screen font-black text-9xl text-custom p-5  text-center flex flex-col justify-center items-center" >
+  <span> Press W </span>
+   <span class="text-4xl">Remove the ball from the box</span>
+ </div>
+<div class="canvas "></div>
 
-
-<div class="  absolute top-0 left-0 w-screen h-screen filter"></div>
-    <div class="canvas"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
