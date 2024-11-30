@@ -3,12 +3,13 @@ import { TestLevel2 } from "./levels/TestLevel2"
 import { TestLevel3 } from "./levels/TestLevel3"
 import { TestLevel4 } from "./levels/TestLevel4"
 import { TestLevel5 } from "./levels/TestLevel5"
+import { TestLevel6 } from "./levels/TestLevel6"
 import { Player } from "./player"
 
 import { Wall } from "./primitives/Wall"
 
 const gameover = document.getElementById("gameover")
-let MAX = 4
+let MAX = 5
 let TIMER = 0;
 
 export class World{
@@ -27,9 +28,9 @@ export class World{
       this.canvas.width = innerWidth
       this.canvas.height = innerHeight
       this.c = this.canvas.getContext("2d")
-      this.level = 4;
+      this.level = 0;
       this.isLevelOver = false
-      this.levels = [new TestLevel(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel2(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel3(this.c , this.canvas.width/2,this.canvas.height/2), new TestLevel4(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel5(this.c , this.canvas.width/2,this.canvas.height/2)]
+      this.levels = [new TestLevel(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel2(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel3(this.c , this.canvas.width/2,this.canvas.height/2), new TestLevel4(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel5(this.c , this.canvas.width/2,this.canvas.height/2) , new TestLevel6(this.c , this.canvas.width/2,this.canvas.height/2)]
       this.init()
     }
     init(){
