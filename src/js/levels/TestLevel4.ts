@@ -1,14 +1,16 @@
 import { Vector } from "../math/vector";
 import { Wall } from "../primitives/Wall";
 
-const ROTATION_SPEED = Math.PI/300
+const ROTATION_SPEED = Math.PI/200
 
-export class TestLevel{
+export class TestLevel4{
 
     wall1: Wall
     wall2: Wall
     wall3: Wall
     wall4:Wall
+    wall5:Wall
+    wall6:Wall
     pivot: Vector
     omega: number
     origin:Vector
@@ -26,22 +28,27 @@ export class TestLevel{
 
         this.src = "src/assets/img.png"
         
-        this.wall1 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2,this.origin.y - this.height/2, 0,c)
+        this.wall1 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 20,this.origin.y - this.height/2, 0,c)
         this.wall2 = new Wall(this.origin.x - this.width/2,this.origin.y + this.height/2,this.origin.x + this.width/2,this.origin.y + this.height/2, 0,c)
-        this.wall3 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 50,this.origin.y - this.height/2, -Math.PI/2,c)
+        this.wall3 = new Wall(this.origin.x - this.width/2,this.origin.y - this.height/2,this.origin.x + this.width/2 - 40,this.origin.y - this.height/2 -20, -Math.PI/2,c)
         this.wall4 = new Wall(this.origin.x + this.width/2,this.origin.y + this.height/2,this.origin.x - this.width/2,this.origin.y + this.height/2, -Math.PI/2,c)
+        this.wall5 = new Wall(this.origin.x -150 , this.origin.y + 100 , this.origin.x + 140 , this.origin.y+140 ,0,c)
 
-        this.walls = [this.wall1 , this.wall2 ,  this.wall3 , this.wall4]
+        this.wall6 = new Wall(this.origin.x -150 , this.origin.y + 100 , this.origin.x + 140 , this.origin.y-100 ,0,c)
+
+        this.walls = [this.wall1 , this.wall2 ,  this.wall3 , this.wall4, this.wall5, this.wall6]
       
         this.pivot = this.origin
         this.omega = 0
     }
     draw(){
         this.walls.map(e => {
+            e.dash = 70
             e.pivot = this.pivot
             e.draw()})
 
 this.enableControls()
+
 
         
     }
@@ -70,7 +77,6 @@ this.enableControls()
 
         // this.maskImage(this.src)
 
-     
         this.walls.map(e => {
             e.omega = this.omega
             e.update()
