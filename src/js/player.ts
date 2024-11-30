@@ -32,7 +32,7 @@ export class Player {
         this.c = c
         this.velocity = new Vector(.2,.6)
         this.acc = new Vector(0, 0)
-        this.color = "rgba(255,0,0,.5)"
+        this.color = "#fff"
         this.player = false
         this.randomMotion = true
         this.hightlight = false
@@ -54,10 +54,14 @@ export class Player {
     draw() {
         if(this.c){
         this.c.beginPath()
+      this.c.setLineDash([]);
+
         this.c.arc(this.position.x, this.position.y, this.r, 0, 2 * Math.PI)
         this.c.strokeStyle = "black"
-        this.c.lineWidth =5
+        this.c.lineWidth =12
         this.c.stroke()
+        this.c.shadowBlur = 10
+    this.c.shadowColor = "#000"
         this.c.fillStyle = this.color
         this.c.fill()
         }

@@ -12,6 +12,10 @@
 }
 
 .text-custom{
-  color:rgba(0, 0, 0, 0.08);
+  color:rgba(255, 255, 255, 0.091);
   filter: blur(1000);
+}
+.filter{
+  filter: brightness(120px) contrast(300%) hue-rotate(30deg);
+  background:rgba(0, 0, 0, 0.048);
 }

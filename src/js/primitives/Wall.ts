@@ -12,6 +12,7 @@ export class Wall{
     c:CanvasRenderingContext2D | null
 
     thickness:number
+    dash:number
 
     constructor(sx:number, sy:number, ex:number, ey:number , angle = 0 , c:CanvasRenderingContext2D | null){
         
@@ -22,6 +23,7 @@ export class Wall{
         this.omega = 0
         this.c = c
         this.thickness = 3
+        this.dash = 7
 
         this.updateAngle(angle)
            }
@@ -41,10 +43,14 @@ export class Wall{
     draw(){
         if(this.c){
         this.c.beginPath()
+      this.c.setLineDash([55, this.dash]);
         this.c.moveTo(this.start.x, this.start.y)
         this.c.lineTo(this.end.x, this.end.y)
-        this.c.lineWidth = 5
-        this.c.strokeStyle = "#222"
+        this.c.lineCap = "round";
+        this.c.lineWidth = 10
+          this.c.shadowBlur = 20
+        this.c.shadowColor = "white"
+        this.c.strokeStyle = "#eee"
         this.c.stroke()
         }
       
