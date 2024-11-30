@@ -82,7 +82,7 @@ this.draw()
         // this.maskImage(this.src)
 
         this.walls.map(e => {
-            e.omega = this.omega
+            e.omega = -this.omega
             
             e.update()
         })
