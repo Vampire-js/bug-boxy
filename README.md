@@ -1,10 +1,11 @@
 # My game for 1-button 2024 game jam
-![image](https://github.com/user-attachments/assets/9b9a83e7-9938-43b5-b7a2-9f68cea35054)
+![image](https://github.com/user-attachments/assets/f03e2e04-f3cb-47b3-a89b-bf2f7051c614)
+
 
 - [X] Basic Concept
 - [X] Physics
 - [X] Collision Particle Effect
-- [ ] Better graphics
-- [X] More Levels
+- [X] Better graphics
+- [ ] More Levels
 - [X] Better UI
-- [ ] Polishing
+- [X] Polishing
