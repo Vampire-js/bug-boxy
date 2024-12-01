@@ -1,4 +1,4 @@
-import { CollisionEffect } from "../effects/CollisionEffect"
+
 import { Vector } from "./math/vector"
 import { Wall } from "./primitives/Wall"
 
@@ -19,7 +19,7 @@ export class Player {
     walls:Array<Wall>
 
     gravity:number
-    explosions: Array<CollisionEffect>
+    
 
 
 
@@ -48,7 +48,6 @@ export class Player {
 
         this.walls = []
 
-        this.explosions = []
        
     }
     draw() {
@@ -74,24 +73,7 @@ export class Player {
         this.velocity.x = .5
         this.velocity.y = -.1
     }
-    // intersects(other){
-    //     let d = this.position.sub(other.position).mag()
-        
-    //     //Collision Resolution
-        
-    //     if(d  <= -this.velocity.sub(other.velocity).dot(this.position.sub(other.position))*(1/d)+this.r + other.r){
-    //         let n = this.position.sub(other.position).unit()
-
-    //         let p = this.velocity.sub(other.velocity).dot(n) * 2 / (this.mass + other.mass)
-    //         console.log(this.velocity)
-            
-    //         this.velocity = this.velocity.sub(n.mult(p * this.mass))
-    //         other.velocity = other.velocity.add(n.mult(p * other.mass))
-
-
-    //       }
-
-    // }
+ 
 
     collideWall(wall: Wall) {
         // Define the wall segment as a vector
@@ -116,8 +98,6 @@ export class Player {
                 // Resolve the collision by moving the ball out and inverting velocity along the normal
                 let collisionNormal = ballToClosestPoint.unit();
                 
-                let effect = new CollisionEffect(closestPoint.x-20, closestPoint.y-20, this.c)
-                this.explosions.push(effect)
 
                 this.position = closestPoint.add(collisionNormal.mult(this.r));
                 // console.log(collisionNormal)
@@ -125,45 +105,6 @@ export class Player {
             }
         }
     }
-    
-    
-    // setColor(color){
-    //     this.color = color
-    // }
-
-
-    // keyControls() {
-       
-    //         canvas.onkeydown = (key) => {
-    //             if(this.keys.hasOwnProperty(key.key)){
-    //                 this.keys[key.key] = true
-    //             }
-    //         }
-
-
-    //         canvas.onkeyup = (key) => {
-    //             if(this.keys.hasOwnProperty(key.key) ){
-    //                 this.keys[key.key] = false
-    //             }
-    //         }
-    // }
-
-    // move(){
-    //     this.keyControls()
-
-    //     if(this.keys.w == true){
-    //         this.velocity.y = -1
-    //     }else if(this.keys.a == true){
-    //         this.velocity.x = -1
-    //     }else if(this.keys.s == true){
-    //         this.velocity.y = 1
-    //     }else if(this.keys.d == true){
-    //         this.velocity.x = 1
-    //     }else{
-    //         this.velocity.x = 0
-    //         this.velocity.y = 0
-    //     }
-    // }
 
     update() {
         this.draw();
@@ -184,19 +125,6 @@ export class Player {
     
         // Gravity on the y-axis
         this.acc.y = this.gravity;
-    
-    
-
-
-        // this.explosions.map(e => {
-        //     e.draw()
-        //     e.update()
-        // })
-
-        // if(this.timer%40 == 0){
-        //     this.explosions.shift()
-        // }
-
         
     }
     
