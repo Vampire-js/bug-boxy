@@ -76,7 +76,7 @@ this.enableControls()
        
         this.c?.drawImage(image, this.origin.x - this.width/2 - 30, this.origin.y - this.height/2 - 30,this.width + 60, this.height + 60)
     }
-    update() {
+    update(dt:number) {
 this.time++
 this.draw()
         // this.maskImage(this.src)
@@ -84,7 +84,7 @@ this.draw()
         this.walls.map(e => {
             e.omega = this.omega
             
-            e.update()
+            e.update(dt)
         })
 
     }

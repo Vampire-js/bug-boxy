@@ -56,8 +56,8 @@ export class Wall{
       
     }
     
-    update(){
-        this.updateAngle(this.omega)
+    update(dt:number){
+        this.updateAngle(this.omega*dt*3)
 
         this.draw()
     }

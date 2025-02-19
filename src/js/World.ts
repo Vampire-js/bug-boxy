@@ -54,7 +54,7 @@ export class World{
 
     }
     startTimer(){
-      TIMER += 0.005
+      TIMER += 0.008
       let timerDisplay =   document.getElementById("timer")
 if(timerDisplay)
 {
@@ -63,7 +63,7 @@ if(timerDisplay)
 }
       
     }
-    update(){
+    update(dt:number){
 
       this.startTimer()
 
@@ -72,7 +72,7 @@ if(timerDisplay)
       this.c.fillRect(0,0,this.canvas.width, this.canvas.height)
 
       if(this.levels[this.level]){
-        this.levels[this.level].update()
+        this.levels[this.level].update(dt)
       }
 
       if(this.player){
@@ -80,7 +80,7 @@ if(timerDisplay)
           this.isLevelOver = true
           this.player.position = this.levels[this.level].origin         
         }
-        this.player.update()
+        this.player.update(dt)
       }
 
       if(this.isLevelOver){

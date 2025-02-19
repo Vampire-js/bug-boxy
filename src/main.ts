@@ -1,13 +1,17 @@
 import { World } from './js/World'
 import './style.css'
 
-
 const world = new World()
 
-const animate = ():void => {
-requestAnimationFrame(animate)
+let lastTime = performance.now() // Use `performance.now()` for better precision
 
-world.update()
+const animate = (currentTime: number): void => {
+    requestAnimationFrame(animate)
+
+    const deltaTime = (currentTime - lastTime) / (1000 / 60) // Normalize deltaTime to 60 FPS
+    lastTime = currentTime // Update last frame time
+
+    world.update(deltaTime)
 }
 
-animate()
+requestAnimationFrame(animate) // Start the loop

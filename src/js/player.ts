@@ -30,7 +30,7 @@ export class Player {
         this.position = new Vector(x, y)
         this.r = r
         this.c = c
-        this.velocity = new Vector(.2,.6)
+        this.velocity = new Vector(1,1)
         this.acc = new Vector(0, 0)
         this.color = "#ff5959"
         this.player = false
@@ -70,8 +70,8 @@ export class Player {
         // this.velocity.draw(this.position.x, this.position.y, 40, "red")
     }
     startRandomMotion(){
-        this.velocity.x = .5
-        this.velocity.y = -.1
+        this.velocity.x = 50
+        this.velocity.y = -10
     }
  
 
@@ -106,9 +106,9 @@ export class Player {
         }
     }
 
-    update() {
+    update(dt:number) {
         this.draw();
-        this.velocity = this.velocity.unit().mult(2)
+        this.velocity = this.velocity.unit().mult(5*dt)
         this.timer++
         // Check and resolve collisions with all walls before updating position
         for (let wall of this.walls) {
